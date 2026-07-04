@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { @apply font-body text-ink bg-paper; -webkit-font-smoothing: antialiased; }
+
+@layer components {
+  .container-site { @apply w-[92%] max-w-site mx-auto; }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold text-[.95rem]
+           px-6 py-3 rounded-full border-2 border-transparent cursor-pointer
+           transition-all duration-150 whitespace-nowrap active:translate-y-px select-none;
+  }
+  .btn-solid { @apply bg-tomato text-white hover:bg-tomatoBright shadow-[0_10px_24px_-12px_#c0392b]; }
+  .btn-ghost { @apply bg-transparent border-current text-ink hover:bg-ink hover:text-cream; }
+
+  .eyebrow { @apply font-script text-goldSoft text-[1.4rem] tracking-wide; }
+  .section-title { @apply font-display font-extrabold leading-tight text-[clamp(2rem,4.5vw,3rem)]; }
+}
+
+@layer utilities {
+  .food-gradient { background: linear-gradient(135deg, #7a3b22, #3a1c12); }
+}
+
+/* hero plate */
+.hero-plate {
+  border: 10px solid #2f211a;
+  background: radial-gradient(circle at 50% 40%, #7a3b22, #3a1c12);
+}
+
+/* wavy divider under the hero */
+.wave-divider {
+  height: 60px;
+  background: #fbf6ec;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cpath d='M0 60V28c80-18 160-18 240 0s160 18 240 0 160-18 240 0 160 18 240 0 160-18 240 0v32z'/%3E%3C/svg%3E") bottom/100% 100% no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cpath d='M0 60V28c80-18 160-18 240 0s160 18 240 0 160-18 240 0 160 18 240 0 160-18 240 0v32z'/%3E%3C/svg%3E") bottom/100% 100% no-repeat;
+}
+
+/* gallery slider */
+.slider-track { transition: transform .55s cubic-bezier(.65,.05,.25,1); }
+
+/* cart scrollbar */
+.cart-body::-webkit-scrollbar { width: 8px; }
+.cart-body::-webkit-scrollbar-thumb { background: #e0d3bd; border-radius: 8px; }
+
+:focus-visible { outline: 3px solid #dd9a4e; outline-offset: 2px; border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
